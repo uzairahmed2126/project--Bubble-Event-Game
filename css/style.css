@@ -108,3 +108,46 @@ body {
     transform: translateX(0);
   }
 }
+
+.timer-anim {
+  background: darkred;
+  color: #fff;
+  animation: pulse 0.5s infinite alternate;
+
+  /* font-size: 40px; */
+}
+
+@keyframes pulse {
+  0% {
+    background: darkred;
+    font-size: 30px;
+  }
+  100% {
+    background: red;
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #game-over > h1 {
+    text-align: center;
+    font-size: 25px;
+  }
+  #game-over > h2 {
+    font-size: 20px;
+  }
+  .bubble {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+  @keyframes pulse {
+    0% {
+      background: darkred;
+      font-size: 15px;
+    }
+    100% {
+      background: red;
+      font-size: 25px;
+    }
+  }
+}

@@ -2,13 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let timer = 60;
   let hit = 0;
   let score = 0;
-  let flag = 0;
   const timerClass = document.querySelector(".timer");
   const hitClass = document.querySelector(".hit");
   const scoreClass = document.querySelector(".score");
-  const bubbles = document.querySelectorAll(".bubble");
   const boxContainer = document.getElementById("box-bottom-container");
-  const finalScoreContainer = document.getElementById("final-score");
 
   function handleClick(e) {
     e.preventDefault();
@@ -22,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       getNewHit();
     } else {
       hitClass.classList.add("anim");
-      console.log(e.target.textContent);
+      // console.log(e.target.textContent);
       scoreClass.style.background = "red";
       decreaseScore();
     }
@@ -61,8 +58,19 @@ document.addEventListener("DOMContentLoaded", () => {
       timerClass.style.background = "red";
       timerClass.style.fontSize = "20px";
       timerClass.style.textAlign = "center";
-      boxContainer.innerHTML = "<h1>Game Over</h1>";
+      boxContainer.innerHTML = `<div id="game-over"><h1>Game Over</h1><h2 style="text-align: center;">Your Score is : ${score}</h2></div>`;
       clearInterval(runTimer);
+    }
+    if (timer < 3) {
+      // timerClass.style.color = "red";
+      timerClass.classList.add("timer-anim");
+      // timerClass.classList.add("timer");
+      // timerClass.style.fontSize = "40px";
+    }
+    if (timerClass.textContent === "Time up!") {
+      timerClass.style.fontSize = "20px";
+      timerClass.style.color = "";
+      timerClass.classList.remove("timer-anim");
     }
   }, 1000);
   makeBubble();
