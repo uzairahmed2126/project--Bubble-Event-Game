@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const hitClass = document.querySelector(".hit");
   const scoreClass = document.querySelector(".score");
   const boxContainer = document.getElementById("box-bottom-container");
-
   function handleClick(e) {
     e.preventDefault();
     let target = e.target;
